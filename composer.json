@@ -1,0 +1,17 @@
+{
+    "name": "comodojo/comodojo.installer",
+    "type": "composer-plugin",
+    "require": {
+        "composer-plugin-api": "^1.0",
+        "monolog/monolog": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Comodojo\\Installer\\": "src",
+            "Comodojo\\Exception\\": "src/Exception"
+        }
+    },
+    "extra": {
+        "class": "Comodojo\\Installer\\Plugin"
+    }
+}
