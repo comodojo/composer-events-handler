@@ -7,11 +7,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Comodojo\\Installer\\": "src",
+            "Comodojo\\Composer\\":  ["src", "src/Plugin"],
             "Comodojo\\Exception\\": "src/Exception"
         }
     },
     "extra": {
-        "class": "Comodojo\\Installer\\Plugin"
+        "class": "Comodojo\\Composer\\EventsListener"
     }
 }

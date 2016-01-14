@@ -58,10 +58,10 @@ abstract class EventsHandler {
      * 
      * @throws \Comodojo\Exception\EventException
      */
-    //public function install()   {}
-    //public function update()    {}
-    //public function uninstall() {}
-    //public function finalize()  {}
+	public function install()   {} // Called after the installation of the package (including root package)
+	public function update()    {} // Called after the package has been updated
+	public function uninstall() {} // Called before the package is uninstalled (you can use it to clean up)
+	public function finalize()  {} // Always called after composer has finished doing its job (install, update, create-project)
     
     /**
      * Retry the execution of a method. 

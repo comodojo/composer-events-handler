@@ -14,7 +14,7 @@ You may need to initialize the database, creating tables, setting up variables o
 
 Install [composer](https://getcomposer.org/), then:
 
-`` composer require comodojo/composer-events-handler 0.0.1 ``
+`` composer require comodojo/composer-events-handler 0.0.* ``
 
 ## How to make it work
 
@@ -27,10 +27,10 @@ After you've installed this plugin in your main project, in order to make it wor
 You need to create a class in your package that extends the abstract class `` \Comodojo\Composer\EventsHandler `` implementing one or more of the following methods:
 
 ```php 
-install()   // Called after the installation of the package
-update()    // Called after the package has been updated
-uninstall() // Called before the package is uninstalled (you can use it to clean up)
-finalize()  // Always called after composer has finished doing its job
+public function install()    {} // Called after the installation of the package (including root package)
+public function update()     {} // Called after the package has been updated
+public function uninstall()  {} // Called before the package is uninstalled (you can use it to clean up)
+public function finalize()   {} // Always called after composer has finished doing its job (install, update, create-project)
 ```
 
 For example:
