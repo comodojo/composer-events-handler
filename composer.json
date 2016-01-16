@@ -3,12 +3,12 @@
     "type": "composer-plugin",
     "require": {
         "composer-plugin-api": "^1.0",
-        "monolog/monolog": "^1.0"
+        "monolog/monolog": "^1.0",
+        "comodojo/exceptions": "^1.0"
     },
     "autoload": {
         "psr-4": {
-            "Comodojo\\Composer\\":  ["src", "src/Plugin"],
-            "Comodojo\\Exception\\": "src/Exception"
+            "Comodojo\\Composer\\":  ["src", "src/Plugin"]
         }
     },
     "extra": {

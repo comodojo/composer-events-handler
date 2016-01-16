@@ -4,8 +4,8 @@ use \Composer\Composer;
 use \Composer\IO\IOInterface;
 use \Composer\Plugin\PluginInterface;
 use \Composer\Plugin\PackageInterface;
-use \Comodojo\Exception\RetryException;
-use \Comodojo\Exception\EventException;
+use \Comodojo\Exception\ComposerRetryException;
+use \Comodojo\Exception\ComposerEventException;
 use \Exception;
 
 /** 
@@ -111,7 +111,7 @@ class Plugin extends Retry implements PluginInterface {
 					
 					$this->sendToLog("OK\n");
 					
-				} catch (RetryException $e) {
+				} catch (ComposerRetryException $e) {
 					
 					$this->sendToLog("Retry\n");
 					
@@ -120,7 +120,7 @@ class Plugin extends Retry implements PluginInterface {
 						$this->log
 					);
 					
-				} catch (EventException $e) {
+				} catch (ComposerEventException $e) {
 					
 					$this->logError();
 					
@@ -144,8 +144,8 @@ class Plugin extends Retry implements PluginInterface {
      * 
      * @param  string $method Method to run
      *
-     * @throws \Comodojo\Exception\RetryException
-     * @throws \Comodojo\Exception\EventException
+     * @throws \Comodojo\Exception\ComposerRetryException
+     * @throws \Comodojo\Exception\ComposerEventException
      */
     private function installClass($method) {
     	
@@ -161,11 +161,11 @@ class Plugin extends Retry implements PluginInterface {
 				
 			}
 			
-		} catch (RetryException $e) {
+		} catch (ComposerRetryException $e) {
 			
 			if (!$this->appendRetry($method, $this->className)) {
 				
-				throw new EventException("Installation still not works after retry: " . $e->getMessage());
+				throw new ComposerEventException("Installation still not works after retry: " . $e->getMessage());
 				
 			} 
 				
@@ -173,7 +173,7 @@ class Plugin extends Retry implements PluginInterface {
 			
 		} catch (Exception $e) {
 			
-			throw new EventException($e->getMessage());
+			throw new ComposerEventException($e->getMessage());
 			
 		}
     	
