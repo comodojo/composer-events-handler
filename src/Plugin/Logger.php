@@ -1,6 +1,6 @@
 <?php namespace Comodojo\Composer;
 
-use \Monolog\Logger;
+use \Monolog\Logger as MonoLogger;
 use \Monolog\Handler\StreamHandler;
 use \Monolog\Formatter\LineFormatter;
 
@@ -87,14 +87,14 @@ class Logger {
      * @param LineFormatter $formatter Formatting object for log entries
      * @param string        $output    Destination of the log entries (filename or stream)
      *
-     * @return Logger       $logger    Reference object to the logger created
+     * @return MonoLogger   $logger    Reference object to the logger created
      */
     private function createLogger($name, LineFormatter $formatter, $output) {
     	
-    	$stream = new StreamHandler($output, Logger::INFO);
+    	$stream = new StreamHandler($output, MonoLogger::INFO);
     	$stream->setFormatter($formatter);
     	
-    	$logger = new Logger($name);
+    	$logger = new MonoLogger($name);
     	$logger->pushHandler($stream);
     	
     	return $logger;
