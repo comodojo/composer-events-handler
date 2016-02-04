@@ -1,10 +1,21 @@
 {
-    "name": "comodojo/comodojo.installer",
+    "name": "comodojo/composer-events-handler",
     "type": "composer-plugin",
+    "license": "MIT",
     "require": {
         "composer-plugin-api": "^1.0",
         "monolog/monolog": "^1.0",
         "comodojo/exceptions": "^1.0"
+    },
+    "homepage": "https://comodojo.org",
+    "authors": [
+        {
+            "name": "Marco Castiello",
+            "email": "marco.castiello@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/comodojo/composer-events-handler/issues"
     },
     "autoload": {
         "psr-4": {

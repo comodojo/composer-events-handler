@@ -26,7 +26,7 @@ After you've installed this plugin in your main project, in order to make it wor
 
 You need to create a class in your package that extends the abstract class `` \Comodojo\Composer\EventsHandler `` implementing one or more of the following methods:
 
-```php 
+```php
 public function install()    {} // Called after the installation of the package (including root package)
 public function update()     {} // Called after the package has been updated
 public function uninstall()  {} // Called before the package is uninstalled (you can use it to clean up)
@@ -42,7 +42,7 @@ namespace MyProject\MyApp;
 class MyAppSetup extends \Comodojo\Composer\EventsHandler {
 
     public function finalize() {
-        
+
 		// Do awesome stuff
 
     }
@@ -84,28 +84,28 @@ namespace MyProject\MyApp;
 class MyAppSetup extends \Comodojo\Composer\EventsHandler {
 
     public function install() {
-        
+
 		// Do awesome stuff
-		
+
 		$this->retry("doStuff");
 
     }
-    
+
     public function doStuff() {
-    	
+
     	// load an object that may be installed by another package
     	try {
-    	
+
     		$obj = new MyOtherPackageObject();
-    		
+
     		$obj->doSomethingAwesome();
-    		
+
     	} catch (\Exception $e) {
-    	
+
     		throw $e;
-    	
+
     	}
-    	
+
     }
 
 }
