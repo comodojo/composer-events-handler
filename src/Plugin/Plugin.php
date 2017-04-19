@@ -49,7 +49,7 @@ class Plugin extends Retry implements PluginInterface {
      * therefore it must be implemented, but we just use it to load the loggers
      *
      */
-    protected function activate(Composer $composer, IOInterface $io) {
+    public function activate(Composer $composer, IOInterface $io) {
 
     	$this->composer = $composer;
 
